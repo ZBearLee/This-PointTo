@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*   let name='XL'
+        class Person{
+            constructor(){
+                this.name='xl'
+            }
+            showName(){
+                console.log(this.name)
+            }
+            
+        }
+        let person =new Person()
+        //new object
+        person.showName() */
+
+
+        /*   var name = "XL";
+          function Person() {
+              this.name = "xl";
+              this.showName = function () {
+                  console.log(this.name);
+              }
+              setTimeout(this.showName, 50);
+              //在setTimeout(this.showName,50)语句中，会延时执行this.showName方法
+              //this.showName方法即构造函数Person()里面定义的方法。50ms后，
+              //执行this.showName方法，this.showName里面的this此时便指向了window对象。
+              //则会输出"XL";
+          }
+          var person = new Person(); */
+
+
+        let name = "XL"
+        function Person() {
+            this.name = "x1"
+            var that = this;
+            this.showName = function () {
+                console.log(this.name)
+                console.log(that.name)
+            }
+            setTimeout(this.showName, 50);
+        }
+        var person = new Person()
+    </script>
+</body>
+
+</html>
