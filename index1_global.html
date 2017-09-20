@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 情况一：纯粹的函数调用,这是函数的最通常用法，属于全局性调用，
+        因此this就代表全局对象Global。,它的运行结果是1。 
+        function test() {
+            this.x = 1;
+            alert(this.x);
+        }
+        test();      //1
+*/
+
+
+
+
+        /* 为了证明this就是全局对象，我对代码做一些改变：
+        var x = 1;
+        function test() {
+            alert(this.x);
+        }
+        test();    //1
+        */
+
+
+
+
+        /*   //再变一下：
+          var x = 1;
+          function test() {
+              this.x = 0;
+          }
+          test();
+          alert(x); //0
+          alert(this.x)  //0 */
+
+        //再变一下：
+        var x = 1;
+        function test() {
+            var x = 0;
+            alert(x)
+            alert(this.x)
+        }
+        test();
+        alert(x); //0
+        alert(this.x)  //0
+    </script>
+</body>
+
+</html>
