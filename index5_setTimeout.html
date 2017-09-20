@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            name: 'qiutc',
+            foo: function () {
+                console.log(this);  //Object
+            },
+            foo2: function () {
+                console.log(this)  //第一次是 `foo2` 中直接打印 `this`，这里指向 `obj` 这个对象
+                console.log(this.name);    //qiutc
+                setTimeout(this.foo, 1000);   //Window
+               // `setTimeout` 也只是一个函数而已，函数必然有可能需要参数，
+               //我们把 `this.foo` 当作一个参数传给 `setTimeout` 这个函数，
+               //就像它需要一个 `fun` 参数，在传入参数的时候，
+               //其实做了个这样的操作 `fun = this.foo`，看到没有，
+               //这里我们直接把 `fun` 指向 `this.foo` 的引用；
+               //执行的时候其实是执行了 `fun()` 所以已经和 `obj` 无关了，
+               //它是被当作普通函数直接调用的，因此 `this` 指向全局对象。
+            }
+        }
+        obj.foo2();
+    </script>
+</body>
+
+</html>
