@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class FruitA {
+            constructor(n1, n2) {
+                this.n1 = n1
+                this.n2 = n2
+            }
+            change(x, y) {
+                this.n1 = x
+                this.n2 = y
+            }
+        }
+        FruitA = new FruitA('cheery', 'banara')
+        FruitB = {
+            n1: 'apple',
+            n2: 'orange'
+        }
+        FruitA.change.call(FruitB, 'pear', 'peach')
+        console.log(FruitB.n1)
+        console.log(FruitB.n2)
+    </script>
+</body>
+
+</html>
